@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
+using PaymentManagement.Application.Interface;
 using PaymentManagement.Infrastructure;
+using PaymentManagement.Infrastructure.Messaging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,6 +11,8 @@ builder.Services.AddDbContext<PaymentDbContext>(options =>
 builder.Services.AddControllers();
 
 builder.Services.AddOpenApi();
+
+builder.Services.AddSingleton<IMessageBus, RabbitMqMessageBus>();
 
 var app = builder.Build();
 
@@ -22,5 +26,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+var consumer = new PaymentConsumer();
 
 app.Run();

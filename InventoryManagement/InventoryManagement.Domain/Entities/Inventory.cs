@@ -2,7 +2,7 @@
 
 public sealed class Inventory
 {
-    public int Id { get;private set; }
+    public int Id { get; private set; }
     public string Name { get; private set; }
     public int Stock { get; private set; }
 
@@ -10,9 +10,9 @@ public sealed class Inventory
     {
     }
 
-    public Inventory(Guid productId, string name, int stock)
+    public Inventory(int productId, string name, int stock)
     {
-        if (productId == Guid.Empty)
+        if (productId <= 0)
             throw new ArgumentException("شناسه محصول معتبر نیست.", nameof(productId));
 
         if (string.IsNullOrWhiteSpace(name))

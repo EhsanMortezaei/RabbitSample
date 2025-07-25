@@ -1,6 +1,5 @@
 ﻿using InventoryManagement.Application.Interface;
 using InventoryManagement.Domain.Interface;
-using OrderManagement.Domain.Entities;
 using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System.Text;
@@ -24,7 +23,7 @@ public class RabbitMqConsumer
     {
         _factory = new ConnectionFactory
         {
-            Uri = new Uri("amqps://jqjgepts:qfybXjOjNpNL4sygzjhaNWtzJog5irdl@beaver.rmq.cloudamqp.com/jqjgepts"),
+            Uri = new Uri("amqps://jqjgepts:qfybXjOjNpNL4sygzjhaNWtzJog5irdl@beaver.rmq.cloudamqp.com/jqjgepts\r\n"),
             Ssl = new SslOption
             {
                 Enabled = true,

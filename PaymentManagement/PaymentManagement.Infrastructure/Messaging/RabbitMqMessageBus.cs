@@ -1,9 +1,9 @@
-﻿using InventoryManagement.Application.Interface;
+﻿using PaymentManagement.Application.Interface;
 using RabbitMQ.Client;
 using System.Text;
 using System.Text.Json;
 
-namespace InventoryManagement.Infrastructure.Messaging;
+namespace PaymentManagement.Infrastructure.Messaging;
 
 public class RabbitMqMessageBus : IMessageBus
 {

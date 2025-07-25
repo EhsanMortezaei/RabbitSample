@@ -1,9 +1,9 @@
-﻿using InventoryManagement.Application.Interface;
-using RabbitMQ.Client;
+﻿using System.Text.Json;
 using System.Text;
-using System.Text.Json;
+using NotificationManagement.Application.Interface;
+using RabbitMQ.Client;
 
-namespace InventoryManagement.Infrastructure.Messaging;
+namespace NotificationManagement.Infrastructure.Messaging;
 
 public class RabbitMqMessageBus : IMessageBus
 {

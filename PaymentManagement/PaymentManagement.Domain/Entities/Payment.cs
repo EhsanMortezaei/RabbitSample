@@ -10,9 +10,9 @@ public sealed class Payment
 
     private Payment() { }
 
-    public Payment(Guid orderId, decimal amount)
+    public Payment(int orderId, decimal amount)
     {
-        if (orderId == Guid.Empty)
+        if (orderId <= 0)
             throw new ArgumentException("شناسه سفارش معتبر نیست.");
         if (amount <= 0)
             throw new ArgumentException("مبلغ پرداخت باید مثبت باشد.");
