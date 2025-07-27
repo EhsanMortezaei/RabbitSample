@@ -12,6 +12,9 @@ builder.Services.AddDbContext<InventoryDbContext>(options =>
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
+builder.Services.AddScoped<RabbitMqConsumer>();
+
+
 builder.Services.AddSingleton<IMessageBus, RabbitMqMessageBus>();
 builder.Services.AddScoped<IInventoryRepository, InventoryRepository>();  
 

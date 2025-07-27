@@ -40,7 +40,7 @@ public class PaymentConsumer
             var json = Encoding.UTF8.GetString(ea.Body.ToArray());
             var order = JsonSerializer.Deserialize<OrderMessage>(json);
 
-            Console.WriteLine($"💳 در حال پرداخت سفارش: {order.OrderId} - مبلغ: {order.Total}");
+            Console.WriteLine($" در حال پرداخت سفارش: {order.OrderId} - مبلغ: {order.Total}");
 
             await Task.Delay(1000);
 

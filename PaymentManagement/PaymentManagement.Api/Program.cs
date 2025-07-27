@@ -28,5 +28,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 var consumer = new PaymentConsumer();
+consumer.StartConsuming();
 
 app.Run();

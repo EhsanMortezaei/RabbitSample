@@ -32,9 +32,9 @@ public sealed class Order
         CustomerPhone = customerPhone;
     }
 
-    public void AddItem(Guid productId, string productName, int quantity, decimal unitPrice)
+    public void AddItem(int productId, string productName, int quantity, decimal unitPrice)
     {
-        if (productId == Guid.Empty)
+        if (productId <= 0)
             throw new ArgumentException("شناسه محصول معتبر نیست.", nameof(productId));
 
         if (string.IsNullOrWhiteSpace(productName))

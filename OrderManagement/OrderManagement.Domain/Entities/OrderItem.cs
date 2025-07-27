@@ -3,7 +3,7 @@
 public sealed class OrderItem
 {
     public int Id { get; private set; }
-    public Guid ProductId { get; set; }
+    public int ProductId { get; set; }
     public string ProductName { get; private set; }
     public int Quantity { get; private set; }
     public decimal UnitPrice { get; private set; }
@@ -11,9 +11,9 @@ public sealed class OrderItem
 
     private OrderItem() { }
 
-    public OrderItem(Guid productId, string productName, int quantity, decimal unitPrice)
+    public OrderItem(int productId, string productName, int quantity, decimal unitPrice)
     {
-        if (productId == Guid.Empty)
+        if (productId <= 0)
             throw new ArgumentException("شناسه محصول معتبر نیست.", nameof(productId));
 
         if (string.IsNullOrWhiteSpace(productName))
@@ -25,7 +25,7 @@ public sealed class OrderItem
         if (unitPrice <= 0)
             throw new ArgumentException("قیمت واحد باید بزرگ‌تر از صفر باشد.", nameof(unitPrice));
 
-        ProductId = productId;  
+        ProductId = productId;
         ProductName = productName;
         Quantity = quantity;
         UnitPrice = unitPrice;

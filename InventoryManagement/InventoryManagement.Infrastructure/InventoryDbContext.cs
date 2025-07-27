@@ -8,7 +8,7 @@ public class InventoryDbContext : DbContext
     public InventoryDbContext(DbContextOptions<InventoryDbContext> options)
         : base(options) { }
 
-    public DbSet<Inventory> Inventories { get; set; }
+    public DbSet<Inventory> Inventory { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

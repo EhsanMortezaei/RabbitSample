@@ -56,8 +56,11 @@ public class RabbitMqConsumer
 
             foreach (var item in order.Items)
             {
-                var inventory = _inventoryRepository.GetByName(item.ProductName);
-                inventory.DecreaseStock(item.Quantity);                
+                var inventory = _inventoryRepository.GetByProductName(item.ProductName);
+                if (inventory == null)
+                    throw new Exception($"Inventory not found for product: {item.ProductName}");
+
+                inventory.DecreaseStock(item.Quantity);
             }
             _inventoryRepository.SaveAsync();
 
@@ -90,8 +93,8 @@ public class OrderMessage
 
 public sealed class OrderItem
 {
-    public int Id { get; set; } // باید با JSON تطابق داشته باشه
-    public string ProductName { get; set; }
+    public int Id { get; set; }
+    public string? ProductName { get; set; }
     public int Quantity { get; set; }
     public int UnitPrice { get; set; }
 }

@@ -27,5 +27,6 @@ app.UseAuthorization();
 app.MapControllers();
 
 var consumer = new NotificationConsumer();
+consumer.StartConsuming();
 
 app.Run();

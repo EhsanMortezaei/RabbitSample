@@ -13,8 +13,9 @@ public class InventoryRepository : IInventoryRepository
         _inventoryDbContext = inventoryDbContext;
     }
 
-    public Inventory GetByName(string namne)
-        => _inventoryDbContext.Inventories.FirstOrDefault(x => x.Name == namne)!;
+    public Inventory? GetByProductName(string productName)
+    => _inventoryDbContext.Inventory.FirstOrDefault(x => x.ProductName == productName);
+
 
     public void SaveAsync()
     {

@@ -5,6 +5,8 @@ public sealed class Inventory
     public int Id { get; private set; }
     public string Name { get; private set; }
     public int Stock { get; private set; }
+    public string ProductName { get; private set; }
+
 
     private Inventory()
     {
